@@ -2,7 +2,9 @@ import { useState } from "react";
 import Modal from "./components/Modal";
 import StarRating from "./components/StarRating";
 import Search2 from "./components/Search2";
-import TabsAccordion from "./components/TabsAccordion";
+
+import Tabs from "./components/Tabs";
+import InfiniteScroll from "./components/InfiniteScroll";
 
 function App() {
 	const [isOpenModal, setIsOpenModal] = useState(false);
@@ -22,7 +24,26 @@ function App() {
 				/>
 			)}
 			<Search2 />
-			<TabsAccordion defaultValue='account'>
+			<Tabs defaultValue='tab1'>
+				<Tabs.List>
+					<Tabs.Trigger value='tab1'>Tab1</Tabs.Trigger>
+					<Tabs.Trigger value='tab2'>Tab2</Tabs.Trigger>
+				</Tabs.List>
+				<Tabs.Content value='tab1'>
+					<div>This is the content for tab 1</div>
+				</Tabs.Content>
+				<Tabs.Content value='tab2'>
+					<div>This is the content for tab 2</div>
+				</Tabs.Content>
+			</Tabs>
+			<InfiniteScroll />
+		</div>
+	);
+}
+
+export default App;
+
+/* <TabsAccordion defaultValue='account'>
 				<TabsAccordion.List>
 					<TabsAccordion.Trigger value='account'>Account</TabsAccordion.Trigger>
 					<TabsAccordion.Trigger value='password'>
@@ -44,9 +65,4 @@ function App() {
 				<TabsAccordion.Content value='settings'>
 					<p>Adjust your notification settings here.</p>
 				</TabsAccordion.Content>
-			</TabsAccordion>
-		</div>
-	);
-}
-
-export default App;
+			</TabsAccordion> */
