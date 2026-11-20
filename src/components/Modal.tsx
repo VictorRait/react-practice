@@ -70,12 +70,20 @@ function Modal({ isOpenModal, setIsOpenModal }: setIsOpenModalProps) {
 		/* Faded full-screen background overlay */
 		<div className='fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm'>
 			<div
+				role='dialog'
+				aria-modal='true'
+				aria-labelledby='modal-title'
 				ref={modalContent}
 				className='h-[400px] w-[900px] bg-white flex flex-col items-center justify-center relative'>
-				<div className='text-2xl font-bold mb-4'>Hi Sample Modal</div>
+				<div
+					id='modal-title'
+					className='text-2xl font-bold mb-4'>
+					Hi Sample Modal
+				</div>
 				<button
 					className='absolute top-0 right-0 px-4 pt-2 scale-150 cursor-pointer'
-					onClick={closeModal}>
+					onClick={closeModal}
+					aria-label='close modal'>
 					×
 				</button>
 				<form className='flex flex-col gap-4'>
